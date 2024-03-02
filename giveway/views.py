@@ -10,7 +10,7 @@ def home_view(request):
             form.save()
             message = 'Your information has been submitted successfully!'
             # form = UserSubmissionForm() 
-            return redirect('https://giveway.mygiveway.tech/')# Reset form
+            return redirect('https://giveway.mygiveway.tech/thankyou')# Reset form
     else:
         form = UserSubmissionForm()
     return render(request, 'index.html', {'form': form, 'message': message})
