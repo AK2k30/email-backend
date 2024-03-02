@@ -1,0 +1,78 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700,900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="{% static 'fonts/icomoon/style.css' %}">
+
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    
+    <!-- Style -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+    <title>Contact Form #6</title>
+  </head>
+  <body>
+  
+
+  <div class="content">
+    
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-10">
+          
+
+          <div class="row justify-content-center">
+            <div class="col-md-6">
+              
+              <h3 class="heading mb-4">Please give your feedback!</h3>
+              <p>Thank you for like, now please share your feedback.</p>
+              <p><img src="{% static 'images/giveway-logo.png' %}" alt="Image" class="img-fluid"></p>
+            </div>
+            <div class="col-md-6">
+              
+              <form method= "post" class="mb-5" id="contactForm" name="contactForm">
+                {% csrf_token %}
+                {% for field in form %}
+                  <div class="row">
+                    <div class="col-md-12 form-group">
+                      {{ field.label_tag }}  <!-- Display field label -->
+                      {{ field }}  <!-- Display form field -->
+                      {{ field.errors }}  <!-- Display form field errors -->
+                      {% if field.help_text %}
+                        <small style="display: block; margin-top: 5px;">{{ field.help_text }}</small>
+                      {% endif %}
+                    </div>
+                  </div>
+                {% endfor %}
+                <div class="row">
+                  <div class="col-12">
+                    <input type="submit" value="Send Message" class="btn btn-primary rounded-0 py-2 px-4">
+                  <span class="submitting"></span>
+                </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+    
+    
+
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.validate.min.js"></script>
+    <script src="js/main.js"></script>
+
+  </body>
+</html>
